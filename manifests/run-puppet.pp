@@ -5,7 +5,12 @@ file { '/usr/local/bin/run-puppet':
 }
 
 cron { 'run-puppet':
-  command => '/usr/local/bin/run-puppet',
+  command => 'sudo /usr/local/bin/run-puppet',
   hour    => '*',
   minute  => '*/15',
+}
+
+file { '/tmp/hi_there.txt':
+  ensure => file,
+  content => "testing cron job",
 }
